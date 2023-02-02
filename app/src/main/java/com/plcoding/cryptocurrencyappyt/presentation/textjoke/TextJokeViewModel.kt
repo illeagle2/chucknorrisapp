@@ -25,10 +25,10 @@ class TextJokeViewModel @Inject constructor(
     val state: State<TextJokeState> = _state
 
     init {
-        getTextJoke("user input text")
+        getTextJoke("")
     }
 
-    private fun getTextJoke(name: String) {
+     fun getTextJoke(name: String) {
         getTextJokeUseCase(name).onEach { result ->
             when(result) {
                 is Resource.Success -> {

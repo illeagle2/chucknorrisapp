@@ -15,13 +15,13 @@ class GetTextJokeUseCase @Inject constructor(
 ) {
     operator fun invoke(name: String): Flow<Resource<Joke>> = flow {
         try {
-            emit(Resource.Loading())
+            emit(Resource.Loading<Joke>())
             val joke = repository.getTextJoke(name).toJoke()
-            emit(Resource.Success(joke))
+            emit(Resource.Success<Joke>(joke))
         } catch (e: HttpException) {
-            emit(Resource.Error(e.localizedMessage ?: "An unexpected error occurred!"))
+            emit(Resource.Error<Joke>(e.localizedMessage ?: "An unexpected error occurred!"))
         } catch (e: IOException) {
-            emit(Resource.Error("Check internet connection!"))
+            emit(Resource.Error<Joke>("Check internet connection!"))
         }
     }
 }
