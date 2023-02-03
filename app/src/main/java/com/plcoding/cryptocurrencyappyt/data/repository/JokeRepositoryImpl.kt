@@ -13,7 +13,7 @@ class JokeRepositoryImpl @Inject constructor(
         return api.getJoke()
     }
 
-    override suspend fun getJokes(): List<JokeDto> {
+    override suspend fun getJokes(): JokeDto {
         return api.getJokes()
     }
 

@@ -16,7 +16,15 @@ class GetJokesUseCase @Inject constructor(
     operator fun invoke(): Flow<Resource<List<Joke>>> = flow {
         try {
             emit(Resource.Loading<List<Joke>>())
-            val jokes = repository.getJokes().map { it.toJoke() }
+            //gets one joke
+            val joke = repository.getJokes().toJoke()
+            //gets 10 jokes and displays a list
+            val jokes = mutableListOf<Joke>()
+            for (i in 0..9){
+                jokes.add(repository.getJokes().toJoke())
+                //jokes.add(i, repository.getJoke().toJoke())
+            }
+            jokes.add(joke)
             emit(Resource.Success<List<Joke>>(jokes))
         } catch (e: HttpException) {
             emit(Resource.Error<List<Joke>>(e.localizedMessage ?: "An unexpected error occurred!"))

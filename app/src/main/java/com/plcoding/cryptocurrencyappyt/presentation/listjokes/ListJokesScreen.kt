@@ -15,8 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
-import com.plcoding.cryptocurrencyappyt.domain.model.Joke
 import com.plcoding.cryptocurrencyappyt.presentation.listjokes.components.ListJokesItem
 
 @Composable
@@ -24,15 +22,23 @@ fun ListJokesScreen (
     viewModel: ListJokeViewModel = hiltViewModel()
 ){
     val state = viewModel.state.value
-    Box(modifier = Modifier.fillMaxSize()) {
-//        LazyColumn(modifier = Modifier.fillMaxSize()) {
-//            items(state.jokes) {joke ->
-//                ListJokesItem(
-//                    joke = joke
-//                )
-//            }
-//        }
-        Text(text = "List Joke Screen")
+
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = "List Joke Screen",
+            modifier = Modifier.align(Alignment.TopCenter)
+        )
+        LazyColumn(modifier = Modifier.fillMaxSize()) {
+            items(state.jokes) {joke ->
+                ListJokesItem(
+                    joke = joke
+                )
+           }
+       }
+
         if (state.error.isNotBlank()) {
             Text(
                 text = state.error,

@@ -25,7 +25,7 @@ class TextJokeViewModel @Inject constructor(
     val state: State<TextJokeState> = _state
 
     init {
-        getTextJoke("")
+        //getTextJoke("")
     }
 
      fun getTextJoke(name: String) {

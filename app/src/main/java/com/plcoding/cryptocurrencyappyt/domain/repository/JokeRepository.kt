@@ -6,7 +6,7 @@ interface JokeRepository {
 
     suspend fun getJoke(): JokeDto
 
-    suspend fun getJokes(): List<JokeDto>
+    suspend fun getJokes(): JokeDto
 
     suspend fun getTextJoke(name: String): JokeDto
 }

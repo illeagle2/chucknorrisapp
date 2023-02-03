@@ -26,6 +26,10 @@ fun TextJokeScreen (
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
+        Text(
+            text = "Text Joke Screen",
+            modifier = Modifier.align(Alignment.TopCenter)
+        )
         Column(
             modifier = Modifier.align(Alignment.Center)
             ) {

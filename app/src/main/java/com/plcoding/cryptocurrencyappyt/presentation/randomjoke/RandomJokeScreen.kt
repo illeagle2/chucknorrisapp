@@ -25,6 +25,10 @@ fun RandomJokeScreen (
         modifier = Modifier.fillMaxSize(),
     ) {
         Text(
+            text = "Random Joke Screen",
+            modifier = Modifier.align(Alignment.TopCenter)
+        )
+        Text(
             text = state.joke?.value ?: "",
             modifier = Modifier.align(Alignment.Center)
         )

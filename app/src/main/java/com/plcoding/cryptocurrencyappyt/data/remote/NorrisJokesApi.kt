@@ -10,7 +10,7 @@ interface NorrisJokesApi {
     suspend fun getJoke(): JokeDto
 
     @GET("/jokes/random")
-    suspend fun getJokes(): List<JokeDto>
+    suspend fun getJokes(): JokeDto
 
     @GET("/jokes/random")
     suspend fun getTextJoke(
