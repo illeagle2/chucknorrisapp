@@ -14,12 +14,6 @@ import androidx.navigation.NavController
 import com.plcoding.cryptocurrencyappyt.domain.model.Joke
 
 
-/**
- * need to research lazy column.
- * this item will house the individual jokes
- * The final display will be a list of ~20 jokes
- * then when user reaches the bottom of list call 20 more
- */
 
 @Composable
 fun ListJokesItem (

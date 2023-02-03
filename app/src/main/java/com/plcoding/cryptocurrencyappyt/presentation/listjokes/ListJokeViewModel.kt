@@ -25,7 +25,7 @@ class ListJokeViewModel @Inject constructor(
         getJokes()
     }
 
-    private fun getJokes() {
+     fun getJokes() {
         getJokesUseCase().onEach { result ->
             when(result) {
                 is Resource.Success -> {

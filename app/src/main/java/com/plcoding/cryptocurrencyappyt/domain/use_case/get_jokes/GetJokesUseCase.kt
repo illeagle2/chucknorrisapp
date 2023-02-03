@@ -17,14 +17,12 @@ class GetJokesUseCase @Inject constructor(
         try {
             emit(Resource.Loading<List<Joke>>())
             //gets one joke
-            val joke = repository.getJokes().toJoke()
-            //gets 10 jokes and displays a list
+            //val joke = repository.getJokes().toJoke()
+            //gets 20 jokes and displays a list
             val jokes = mutableListOf<Joke>()
-            for (i in 0..9){
+            for (i in 1..20){
                 jokes.add(repository.getJokes().toJoke())
-                //jokes.add(i, repository.getJoke().toJoke())
             }
-            jokes.add(joke)
             emit(Resource.Success<List<Joke>>(jokes))
         } catch (e: HttpException) {
             emit(Resource.Error<List<Joke>>(e.localizedMessage ?: "An unexpected error occurred!"))
